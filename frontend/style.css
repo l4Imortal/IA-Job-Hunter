@@ -1,0 +1,298 @@
+/* Reset e estilos globais */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* Container principal */
+.container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Título principal */
+h1 {
+  color: white;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+  animation: fadeIn 0.5s ease;
+}
+
+/* Container das vagas */
+#jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+/* Card de vaga */
+.job-card {
+  background: white;
+  border-radius: 15px;
+  padding: 25px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  animation: slideIn 0.5s ease;
+}
+
+.job-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 40px rgba(0,0,0,0.3);
+}
+
+/* Título da vaga */
+.job-title {
+  color: #333;
+  font-size: 1.5em;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+/* Empresa */
+.company {
+  color: #666;
+  font-size: 1.1em;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.company::before {
+  content: "🏢";
+  font-size: 1.2em;
+}
+
+/* Score de compatibilidade */
+.score {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 20px;
+  display: inline-block;
+  margin-bottom: 15px;
+  font-size: 0.9em;
+  font-weight: 500;
+  animation: pulse 2s infinite;
+}
+
+/* Botão de candidatura */
+.apply-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 100%;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.apply-btn:hover {
+  transform: scale(1.05);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+.apply-btn:active {
+  transform: scale(0.95);
+}
+
+/* Links */
+a {
+  text-decoration: none;
+}
+
+/* Loading state */
+.loading {
+  text-align: center;
+  color: white;
+  font-size: 1.2em;
+  padding: 50px;
+  animation: fadeIn 0.5s ease;
+}
+
+.loading::after {
+  content: "...";
+  animation: dots 1.5s steps(4, end) infinite;
+}
+
+/* Card de erro */
+.error-card {
+  text-align: center;
+  color: #666;
+}
+
+.error-card h3 {
+  color: #dc3545;
+  margin-bottom: 10px;
+}
+
+.retry-btn {
+  width: auto;
+  margin-top: 15px;
+  padding: 10px 30px;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 5px;
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+}
+
+/* Media queries para responsividade */
+@media (max-width: 600px) {
+  body {
+    padding: 10px;
+  }
+  
+  h1 {
+    font-size: 2em;
+    margin-bottom: 20px;
+  }
+  
+  .job-card {
+    padding: 20px;
+  }
+  
+  .job-title {
+    font-size: 1.3em;
+  }
+}
+
+/* Tela de carregamento */
+@media (prefers-reduced-motion: reduce) {
+  .job-card,
+  .score,
+  .apply-btn {
+    animation: none;
+    transition: none;
+  }
+}
+
+/* Modo claro/escuro automático */
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  }
+  
+  .job-card {
+    background: #2d2d2d;
+  }
+  
+  .job-title {
+    color: #fff;
+  }
+  
+  .company {
+    color: #ccc;
+  }
+}
+
+/* Classes utilitárias */
+.text-center {
+  text-align: center;
+}
+
+.mt-20 {
+  margin-top: 20px;
+}
+
+.mb-20 {
+  margin-bottom: 20px;
+}
+
+/* Container para múltiplas colunas em telas grandes */
+@media (min-width: 1200px) {
+  .container {
+    max-width: 1200px;
+  }
+  
+  #jobs {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: white;
+  margin-top: 30px;
+  padding: 20px;
+  opacity: 0.8;
+}
+
+/* Animações */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes dots {
+  0%, 20% {
+    content: ".";
+  }
+  40% {
+    content: "..";
+  }
+  60%, 100% {
+    content: "...";
+  }
+}

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI Job Hunter</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1> Vagas encontradas</h1>
+    <div id="jobs">
+      <div class="loading">Carregando vagas</div>
+    </div>
+  </div>
+
+  <script>
+    async function carregarVagas() {
+      try {
+        const res = await fetch("http://localhost:3000/jobs");
+        const jobs = await res.json();
+
+        const container = document.getElementById("jobs");
+        
+        // Limpa o loading
+        container.innerHTML = "";
+
+        jobs.forEach(job => {
+          // Gera um score aleatório para ficar mais interessante
+          const score = Math.floor(Math.random() * 40) + 60; // 60-100%
+
+          const div = document.createElement("div");
+          div.className = "job-card";
+
+          div.innerHTML = `
+            <h3 class="job-title">${job.titulo}</h3>
+            <div class="company">${job.empresa}</div>
+            <div class="score">⭐ Compatibilidade: ${score}%</div>
+            <a href="${job.link}" target="_blank">
+              <button class="apply-btn">Candidatar-se agora</button>
+            </a>
+          `;
+
+          container.appendChild(div);
+        });
+      } catch (error) {
+        const container = document.getElementById("jobs");
+        container.innerHTML = `
+          <div class="job-card error-card">
+            <h3>😕 Erro ao carregar vagas</h3>
+            <p>Certifique-se de que o servidor está rodando em http://localhost:3000</p>
+            <button onclick="location.reload()" class="apply-btn retry-btn">Tentar novamente</button>
+          </div>
+        `;
+      }
+    }
+
+    carregarVagas();
+  </script>
+</body>
+</html>

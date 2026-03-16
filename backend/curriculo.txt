@@ -1,0 +1,53 @@
+Enzo Rodrigues de Almeida
+Backend / Full Stack Developer
+
+Skills
+JavaScript
+Node.js
+Express
+C#
+React
+HTML
+CSS
+REST API
+MySQL
+Relational Databases
+Git
+CRUD Systems
+Authentication Systems
+Database Modeling
+
+Technologies
+JavaScript
+React
+C#
+MySQL
+HTML
+CSS
+
+Development Concepts
+Backend Development
+Frontend Development
+Full Stack Development
+REST API Development
+Database Design
+System Architecture
+Authentication and Access Control
+Data Consistency
+Version Control
+
+Methodologies
+Scrum
+Kanban
+Agile Development
+
+Languages
+English
+Portuguese
+
+Projects
+Full Business Management System
+Authentication and Access Control
+CRUD Operations
+Relational Database Modeling
+Business Process Simulation
